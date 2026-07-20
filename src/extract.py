@@ -7,7 +7,7 @@ from .logger import logger
 
 # Create an function to extract file into the folder data/raw
 def extract(file: Path) -> pd.DataFrame:
-    logger.info(f"Debut Extraction")
+    logger.info(f"{'#'* 20} Debut Extraction")
     
     try:
         df = pd.read_csv(file)
@@ -19,7 +19,10 @@ def extract(file: Path) -> pd.DataFrame:
         logger.info(f"Nombre de lignes : {df.shape[0]}")
         logger.info(f"Nombre de colonnes : {df.shape[1]}")
 
+        logger.info(f"{'#'* 20} FIN Extraction")
+
         return df
+    
     
     except FileNotFoundError:
             logger.error(f"fichier introuvable : {file}")
@@ -28,6 +31,6 @@ def extract(file: Path) -> pd.DataFrame:
             logger.error(f"Erreur Extraction : {e}")
             return None
 
-    logger.info(f"FIN Extraction")
+    
 
     

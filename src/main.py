@@ -3,6 +3,7 @@ from .extract import extract
 from .transform import transform
 from config.config import RAW_FILE
 from .load import load
+from config.tables import SALES_TABLE
 
 
 if __name__ == '__main__':
@@ -14,4 +15,4 @@ if __name__ == '__main__':
    df_transform = transform(df_extract)
 
    # Load
-   load(df_transform,"ventes") 
+   load(df_transform,SALES_TABLE) 
